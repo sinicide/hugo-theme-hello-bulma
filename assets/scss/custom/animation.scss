@@ -1,0 +1,15 @@
+/* Fun heart Beat Animation */
+@keyframes heart-beat {
+    0% { transform: scale(.7,.7); }
+    20% { transform: scale(1,1); }
+    40% { transform: scale(.8,.8); }
+    60% { transform: scale(1,1); }
+    80% { transform: scale(.8,.8); }
+    100% { transform: scale(.7,.7); }
+}
+.has-heartbeat {
+    font-size: .8em !important;
+    animation: heart-beat 1.5s infinite linear normal;
+    position: relative;
+    display: block;
+}

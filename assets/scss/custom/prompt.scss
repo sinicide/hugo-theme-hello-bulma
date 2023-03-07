@@ -1,0 +1,29 @@
+.prompt {
+    color: $dark !important;
+    font-style: italic;
+
+    &-info {
+        background-color: $info !important;
+    }
+
+    &-warn {
+        background-color: $warning !important;
+
+        & .prompt-icon {
+            color: $dark;
+        }
+    }
+
+    &-danger {
+        background-color: $danger !important;
+        
+        & .prompt-icon {
+            color: $dark;
+        }   
+    }
+
+    &-icon {
+        margin-right: .4em;
+        color: $white;
+    }
+}

@@ -1,0 +1,35 @@
+.back-to-top {
+    pointer-events: all;
+    position: fixed;
+    position: sticky;
+    top: calc(100vh - 10rem);
+
+    // Style
+    width: 60px;
+    height: 60px;
+    background: $orange;
+    display: flex;
+    font-size: 2em;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    box-shadow: $box-shadow;
+    
+
+    & .fas {
+        color: $dark;
+    }
+
+    &-wrapper {
+        overflow: clip;
+        pointer-events: none;
+        position: absolute;
+        top: 100vh;
+        right: 6rem;
+        bottom: 0;
+
+        @media ($tablet) {
+            display: none;
+        }
+    }
+}

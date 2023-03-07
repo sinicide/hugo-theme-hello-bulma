@@ -1,0 +1,45 @@
+.pagination {
+  &__buttons {
+    display: flex;
+    justify-content: center;
+  }
+
+  .button { 
+    @media (max-width: 767px) {
+      width: 160px;
+    }
+
+    &__text {
+      @media (max-width: 767px) {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+    }
+   
+    @media (max-width: 1024px) {
+        padding: 30px !important;      
+    } 
+      
+    + .button {
+      margin-left: 10px;
+    }
+        
+    &.next .button__icon {
+      margin-left: 8px;
+    }
+        
+    &.previous .button__icon {
+      margin-right: 8px;
+    }
+  }
+  span {
+    font-weight: 600;
+  }
+}
+  
+.read-more {
+  .button__icon {
+    margin-left: 8px;
+  }
+}
