@@ -1,19 +1,33 @@
 {{ define "main" }}
   <div class="terms">
-    <h1>{{ .Title }}</h1>
-    <ul class="terms__list">
-      {{ $type := .Type }}
-      {{ range $key, $value := .Data.Terms.Alphabetical }}
-        {{ $name := .Name }}
-        {{ $count := .Count }}
-        {{ with $.Site.GetPage (printf "/%s/%s" $type $name) }}
-          <li class="terms__term">
-            <a href="{{ .Permalink }}"
-              >#{{ .Name }} <span class="terms__term-count">{{ $count }}</span></a
-            >
-          </li>
-        {{ end }}
-      {{ end }}
-    </ul>
+    <h1 class="title is-size-1">{{ .Title }}</h1>
+    {{ range $key, $value := .Data.Terms.Alphabetical }}
+      <div class="terms__group-term">
+        <h2 class="terms__group-term-header">{{ .Page.Title | humanize }}</h2>
+        <div class="terms__group-subterm">
+          <h4 class="terms__group-subterm-header">{{ .Count }} Articles</h4>
+          <div class="terms__group-posts">
+            {{ range .Pages }}
+                <article class="terms__post">
+                  <h3 class="terms__post-title">
+                    <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
+                  </h3>
+                  <div class="terms__post-meta">
+                    <time class="terms__post-date">
+                      {{ .Date.Format ($.Site.Params.DateFormatList | default "2006-01-02") }}
+                    </time>
+                    {{ with .Params.Author }}
+                    <span class="terms__post-author">— {{ $.Site.Params.WrittenBy | default "Written by" }}{{ . }}</span>
+                    {{ end }}
+                    {{ if $.Site.Params.ShowReadingTime }}
+                      <span class="terms__post-read-time">— {{ .ReadingTime }} {{ $.Site.Params.MinuteReadingTime | default "min read" }}</span>
+                    {{ end }}
+                  </div>
+                </article>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+    {{ end }}
   </div>
 {{ end }}

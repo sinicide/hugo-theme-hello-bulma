@@ -1,21 +1,30 @@
-<footer class="footer">
+<footer class="footer has-background-grey-dark has-text-grey-light">
   <div class="footer__inner">
-    {{ if $.Site.Copyright }}
-      <div class="copyright copyright--user">{{ $.Site.Copyright | safeHTML }}</div>
-      {{ else }}
-      {{ partial "logo.html" . }}
-      <div class="copyright">
-        <span>© {{ now.Year }} Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
-        <span><a href="https://github.com/panr/hugo-theme-hello-friend" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
-      </div>
-    {{ end }}
+    {{ partial "logo.html" . }}
+    
+    <span class="footer__icons"><i class="fa fa-heart has-text-danger has-heartbeat"></i> Designed by <strong
+      class="has-text-warning is-hidden-touch">humans</strong><i
+      class="is-hidden-desktop has-text-warning far fa-user-circle" title="humans"></i>, coded by <strong
+      class="has-text-primary is-hidden-touch">robots</strong><i
+      class="is-hidden-desktop has-text-primary fas fa-robot" title="robots"></i>, built by <strong
+      class="has-text-info is-hidden-touch">machines</strong><i
+      class="is-hidden-desktop has-text-info fas fa-laptop-code" title="machines"></i>, deployed by <strong
+      class="has-text-success is-hidden-touch">automation</strong><i
+      class="is-hidden-desktop has-text-success fas fa-cogs" title="automation"></i>, powered by <a
+      href="https://gohugo.io" target="_blank" rel="noopener" class="has-text-danger"><strong
+          class="has-text-danger is-hidden-touch">hugo</strong><i
+          class="is-hidden-desktop has-text-danger fas fa-cogs" title="gohugo"></i></a></span>
   </div>
 </footer>
 
+<div class="back-to-top-wrapper">
+  <a href="#" id="back-to-top" class="back-to-top" aria-label="back-to-top" class="">
+    <i class="fas fa-angle-up"></i>
+  </a>
+</div>
+
 {{ $menu := resources.Get "js/menu.js" | js.Build }}
 {{ $prism := resources.Get "js/prism.js" | js.Build }}
-{{ $theme := resources.Get "js/theme.js" | js.Build }}
-{{ $bundle := slice $menu $prism $theme | resources.Concat "bundle.js" | resources.Minify }}
+{{ $copyLink := resources.Get "js/copy.js" | js.Build }}
+{{ $bundle := slice $menu $prism $copyLink | resources.Concat "bundle.js" | resources.Minify }}
 <script type="text/javascript" src="{{ $bundle.RelPermalink }}"></script>
-
-{{- partial "extended_footer.html" . }}

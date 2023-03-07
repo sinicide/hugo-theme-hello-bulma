@@ -1,60 +1,71 @@
 {{ define "main" }}
+
+{{ $isntDefault := not (or (eq (trim $.Site.Params.contentTypeName " ") "posts") (eq (trim $.Site.Params.contentTypeName " ") "")) }}
+  {{ $contentTypeName := cond $isntDefault (string $.Site.Params.contentTypeName) "posts" }}
+
+  {{ $PageContext := . }}
+  {{ $paginator := .Paginate (where $PageContext.RegularPages "Type" $contentTypeName) }}
+
+  {{ if .Content }}
+    <div class="index-content {{ if .Params.framed -}}framed{{- end -}}">
+      {{ .Content }}
+    </div>
+  {{ end }}
+
   <div class="posts">
-    {{ range .Pages }}
-      <article class="post on-list">
-        <h1 class="post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h1>
-        <div class="post-meta">
-          {{ if .Date }}
-            <time class="post-date">
-              {{ .Date.Format ($.Site.Params.DateFormatList | default "2006-01-02") }}
-            </time>
+    {{ range $paginator.Pages }}
+    <article class="post on-list">
+      <h1 class="title is-size-1"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h1>
+      <div class="is-size-6 mb-2">
+        {{ if .Date }}
+          <time class="">
+            {{ .Date.Format ($.Site.Params.DateFormatList | default "2006-01-02") }}
+          </time>
 
-            {{ if $.Site.Params.LastModDisplay }}
-              {{ partial "lastmod.html" . }}
-            {{ end }}
+          {{ if $.Site.Params.LastModDisplay }}
+            {{ partial "lastmod.html" . }}
           {{ end }}
-          {{ with .Params.Author }}
-            <span class="post-author"
-              >— {{ $.Site.Params.WrittenBy | default "Written by" }} {{ . }}</span
-            >{{ end }}
-
-
-          {{ if $.Site.Params.ShowReadingTime }}
-            <span class="post-read-time"
-              >— {{ .ReadingTime }} {{ $.Site.Params.MinuteReadingTime | default "min read" }}</span
-            >
-          {{ end }}
-        </div>
-
-        {{ if .Params.tags }}
-          <span class="post-tags">
-            {{ range .Params.tags }}
-              <a href="{{ (urlize (printf "tags/%s" . )) | absLangURL }}/">#{{ . }}</a>&nbsp;
-            {{ end }}
-          </span>
         {{ end }}
 
-        {{ if .Params.Cover }}
-          {{ partial "postcover.html" . }}
+        {{ with .Params.Author }}
+          <span class="post-author">— {{ $.Site.Params.WrittenBy | default "Written by" }} {{ . }}</span>
         {{ end }}
 
-        <div class="post-content">
-          {{ with .Description }}
-            {{ . | markdownify }}
-            {{ else }}
-            {{ if .Truncated }}
-              {{ .Summary }}
-            {{ end }}
-          {{ end }}
-        </div>
-        {{ if not .Params.hideReadMore }}
-          <div>
-            <a class="read-more button" href="{{ .RelPermalink }}"
-              >{{ $.Site.Params.ReadMore | default "Read more" }} →</a
-            >
-          </div>
+        {{ if $.Site.Params.ShowReadingTime }}
+          <span class="post-read-time">— {{ .ReadingTime }} {{ $.Site.Params.MinuteReadingTime | default "minutes read" }}</span>
         {{ end }}
-      </article>
+      </div>
+
+      {{ if .Params.tags }}
+        <span class="is-size-6">
+          {{ range .Params.tags }}
+            <a href="{{ (urlize (printf "tags/%s" . )) | absLangURL }}/">#{{ . }}</a>&nbsp;
+          {{ end }}
+        </span>
+      {{ end }}
+
+      {{ if .Params.Cover }}
+        {{ partial "postcover.html" . }}
+      {{ end }}
+
+      <div class="post-content my-5">
+        <p>
+        {{ with .Description }}
+          {{ . | markdownify }}
+        {{ else }}
+          {{ if .Truncated }}
+            {{ .Summary }}
+          {{ end }}
+        {{ end }}
+      </p>
+      </div>
+      {{ if not .Params.hideReadMore }}
+        <div class="mb-5"><a class="read-more button is-dark has-text-grey-light" href="{{.RelPermalink}}">
+          <span class="button__text">{{ $.Site.Params.ReadMore | default "Read more" }}</span>
+          <span class="button__icon">→</span>
+        </a></div>
+      {{ end }}
+    </article>
     {{ end }}
     {{ partial "pagination.html" . }}
   </div>

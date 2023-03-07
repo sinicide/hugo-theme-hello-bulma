@@ -1,6 +1,9 @@
-<header class="header">
+<header class="header has-background-dark">
   <span class="header__inner">
-    {{ partial "logo.html" . }}
+    <span class="header__left">
+      {{ partial "logo.html" . }}
+      <span class="logo__subtext">{{ $.Site.Params.Subtitle }}</span>
+    </span>
     <span class="header__right">
       {{ if len $.Site.Menus }}
         {{ partial "menu.html" . }}
@@ -11,9 +14,6 @@
           </svg>
         </span>
       {{ end }}
-      <span class="theme-toggle">
-        {{ partial "theme-icon.html" . }}
-      </span>
     </span>
   </span>
 </header>

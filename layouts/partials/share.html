@@ -1,0 +1,21 @@
+{{ $title := .title | htmlEscape }}
+<div class="share__social-buttons">
+    <span>Share:</span>
+    {{ with .social }}
+        {{ if .twitter }}
+        <span><a href="https://twitter.com/intent/tweet?url={{ $.permalink | htmlEscape }}&amp;text={{ $.title }}" aria-label="Tweet" target="_blank"><i class="share__social-icons fab fa-twitter-square" aria-hidden="true"></i></a></span>
+        {{ end }}
+        {{ if .facebook }}
+        <span><a href="https://www.facebook.com/share.php?u={{ $.permalink | htmlEscape }}&amp;title={{ $.title }}" aria-label="Facebook" target="_blank"><i class="share__social-icons fab fa-facebook-square" aria-hidden="true"></i></a></span>
+        {{ end }}
+        {{ if .reddit }}
+        <span><a href="https://reddit.com/submit?url={{ $.permalink }}&amp;title={{ $.title }}" aria-label="Reddit" target="_blank"><i class="share__social-icons fab fa-reddit-square" aria-hidden="true"></i></a></span>
+        {{ end }}
+        {{ if .linkedin }}
+        <span><a href="https://www.linkedin.com/shareArticle?url={{ $.permalink }}&amp;title={{ $.title }}" aria-label="Linkedin" target="_blank"><i class="share__social-icons fab fa-linkedin-square" aria-hidden="true"></i></a></span>
+        {{ end }}
+        {{ if .link }}
+        <span><i id="copy_permalink" class="share__social-icons fas fa-link"></i></span>
+        {{ end }}
+    {{ end }}
+</div>
