@@ -8,7 +8,7 @@ $info: hsl(207, 61%,  53%) !default;
 $warning: hsl(44,  100%, 77%) !default;
 $danger: hsl(348, 86%, 61%) !default;
 $orange: hsl(22, 100%, 50%) !default;
-
+$shadow: 0 0.5em 1em -0.125em rgba(hsl(0, 0%, 4%), 0.1), 0 0px 0 1px rgba(hsl(0, 0%, 4%), 0.02) !default
 
 
 $phone: "max-width: 684px";
@@ -16,4 +16,3 @@ $tablet: "max-width: 900px";
 //$box-shadow
 //$box-radius
 //$box-padding
-//$shadow
