@@ -9,7 +9,7 @@
 {{ hugo.Generator }}
 
 <!-- Theme CSS -->
-{{ $style := resources.Get "scss/custom/bulma.scss" | resources.ToCSS }}
+{{ $style := slice (resources.Get "css/bulma.min.css") (resources.Get "scss/custom/bulma.scss" | resources.ToCSS) | resources.Concat "assets/css/main.css" | minify | fingerprint}}
 <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
 
 <!-- Icons -->

@@ -1,14 +1,8 @@
-$phone: "max-width: 684px";
-$tablet: "max-width: 900px";
-
 // Needed for the menu to no think it's mobile
 :root {
   --phoneWidth: (max-width: 684px);
   --tabletWidth: (max-width: 900px);
 }
-
-
-$orange:hsl(22, 100%, 50%) !default;
 
 .has-text-orange {
   color: $orange !important;
