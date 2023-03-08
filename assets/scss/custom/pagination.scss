@@ -1,7 +1,7 @@
 .pagination {
   &__buttons {
     display: flex;
-    justify-content: center;
+    justify-content: center !important;
   }
 
   .button { 
