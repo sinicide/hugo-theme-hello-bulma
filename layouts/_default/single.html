@@ -63,36 +63,39 @@
       </div>
       <span class="is-size-6">Last Modified on {{ .Lastmod.Format "2006 January 2 at 15:04:05 MST" }} | {{ if .Site.Params.github.contentRepo }}<a href="https://github.com/{{ .Site.Params.github.user }}/{{ .Site.Params.github.contentRepo }}/commits/main/{{ .File.Path }}" aria-label="See the git changelog for this post">see changelog</a>{{ end }}</span>
     </div>
-
-    {{ if eq .Type $.Site.Params.contentTypeName }}
-      {{ if or .NextInSection .PrevInSection }}
-        <div class="pagination  mt-6">
-          <span class="pagination__title">{{ $.Site.Params.ReadOtherPosts | default "Read other posts" }}</span>
-        </div>
-        <div class="pagination">
-          <div class="pagination__buttons">
-            {{ if .NextInSection }}
-              <a class="button is-dark previous" href="{{ .NextInSection.Permalink }}">
-                <span class="button__icon">←</span>
-                <span class="button__text">{{ .NextInSection.Title }}</span>
-              </a>
-            {{ end }}
-            {{ if .PrevInSection }}
-              <a class="button is-dark next" href="{{ .PrevInSection.Permalink }}">
-                <span class="button__text">{{ .PrevInSection.Title }}</span>
-                <span class="button__icon">→</span>
-              </a>
-            {{ end }}
-          </div>
-        </div>
-      {{ end }}
-    {{ end }}
-
-    {{ if not (eq .Params.Comments "false") }}
-      {{ if or (eq .Type $.Site.Params.contentTypeName) (.Params.Comments) }}
-        {{ partial "comments.html" . }}
-      {{ end }}
-    {{ end }}
   </article>
 </div>
+
+{{ if eq .Type $.Site.Params.contentTypeName }}
+{{ if or .NextInSection .PrevInSection }}
+<div class="pagination">
+  <div class="pagination__header">
+    <span class="pagination__title">{{ $.Site.Params.ReadOtherPosts | default "Read other posts" }}</span>
+  </div>
+  <div class="pagination__navigation">
+    <div class="pagination__buttons">
+      {{ if .NextInSection }}
+      <a class="button is-dark previous" href="{{ .NextInSection.Permalink }}">
+        <span class="button__icon">←</span>
+        <span class="button__text">{{ .NextInSection.Title }}</span>
+      </a>
+      {{ end }}
+      {{ if .PrevInSection }}
+      <a class="button is-dark next" href="{{ .PrevInSection.Permalink }}">
+        <span class="button__text">{{ .PrevInSection.Title }}</span>
+        <span class="button__icon">→</span>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</div>
+{{ end }}
+{{ end }}
+
+{{ if not (eq .Params.Comments "false") }}
+{{ if or (eq .Type $.Site.Params.contentTypeName) (.Params.Comments) }}
+  {{ partial "comments.html" . }}
+{{ end }}
+{{ end }}
+
 {{ end }}

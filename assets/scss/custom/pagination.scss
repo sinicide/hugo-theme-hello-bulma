@@ -1,4 +1,23 @@
 .pagination {
+  display: inherit;
+  margin-top: 80px;
+
+  &__header {
+    border-bottom: 1px solid $dark;
+    padding: 1em 0;
+    margin: 1.5em 1em;
+  }
+
+  &__title {
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+  }
+
+  &__navigation {
+    justify-content: center;
+  }
+
   &__buttons {
     display: flex;
     justify-content: center;
