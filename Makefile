@@ -5,7 +5,11 @@ bulma-update:
 	unzip -d ./assets/scss/ ./.tmp/bulma-$$BULMA_VERSION.zip 
 clean:
 	rm -rf "./.tmp"
-	rm -rf "assets/scss/bulma"
+	rm -rf "assets/scss/bulma/css"
+	rm -f "assets/scss/bulma/bulma.sass"
+	rm -f "assets/scss/bulma/LICENSE"
+	rm -f "assets/scss/bulma/package.json"
+	rm -f "assets/scss/bulma/README.md"
 prism-update:
 	rm -rf "./.tmp"
 	mkdir -p "./.tmp"
