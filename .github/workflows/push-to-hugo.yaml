@@ -1,0 +1,36 @@
+name: Send submodule updates to parent repo
+
+on:
+  push:
+    branches: 
+      - bulma-mods
+
+jobs:
+  # name of job(s)
+  update:
+    # runner
+    runs-on: ubuntu-latest
+
+    # sequence of tasks
+    steps:
+      # first task
+      - uses: actions/checkout@v3
+        with: 
+          repository: sinicide/hugo-test-build
+          ref: hello-bulma-v2
+          token: ${{ secrets.PRIVATE_TOKEN_GITHUB }}
+          submodules: true
+
+      # second task
+      - name: Pull & update submodules recursively
+        run: |
+          git submodule update --init --recursive
+          git submodule update --recursive --remote
+
+      # third task
+      - name: Commit
+        run: |
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions - update submodules"
+          git commit -m "Update submodules" || echo "No changes to commit"
+          git push
