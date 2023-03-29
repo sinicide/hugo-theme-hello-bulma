@@ -20,12 +20,13 @@ jobs:
           ref: hello-bulma-v2
           token: ${{ secrets.PRIVATE_TOKEN_GITHUB }}
           submodules: true
+          # I seem to need this in order to update submodule to latest
+          fetch-depth: 0
 
       # second task
-      - name: Pull & update submodules recursively
+      - name: Pull & update submodules
         run: |
-          git submodule update --init --recursive
-          git submodule update --recursive --remote
+          git submodule update --remote
 
       # third task
       - name: Commit
