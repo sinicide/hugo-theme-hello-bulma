@@ -33,5 +33,6 @@ jobs:
         run: |
           git config user.email "actions@github.com"
           git config user.name "GitHub Actions - update submodules"
+          git add .
           git commit -m "Update submodules" || echo "No changes to commit"
           git push
