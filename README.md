@@ -1,6 +1,6 @@
 # Hello Bulma
 
-## WIP - Refactoring panr/hugo-theme-hello-friend theme with Bulma.io CSS Framework into my own blog theme
+## Refactored panr/hugo-theme-hello-friend theme with Bulma.io CSS Framework into my own blog theme
 
 ## Updating Bulma CSS Style
 Follow steps to update to specific version of Bulma.
