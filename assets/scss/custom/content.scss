@@ -1,0 +1,20 @@
+.content {
+    & blockquote {
+        background-color: $dark;
+        color: $white;
+        border: initial;
+
+        & strong {
+            color: $white;
+        }
+    }
+
+    & img {
+        margin: 0 auto;
+    }
+
+    & figure {
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+}

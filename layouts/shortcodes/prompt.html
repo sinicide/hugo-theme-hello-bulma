@@ -1,0 +1,4 @@
+<blockquote class="prompt prompt-{{ .Get "type" | default "info" }}">
+    <i class="prompt-icon fa 
+    {{ if eq (.Get "type") "warn" }}fa-exclamation-triangle{{ else if eq (.Get "type") "danger" }}fa-skull{{ else }}fa-info-circle{{ end }}" aria-hidden="true"></i><span>{{ .Inner | markdownify }}</span>
+</blockquote>

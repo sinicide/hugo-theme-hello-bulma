@@ -3,7 +3,7 @@
   {{ $contentTypeName := cond $isntDefault (string $.Site.Params.contentTypeName) "posts" }}
 
   <div class="archive">
-    <h1>{{ .Title }}</h1>
+    <h1 class="title is-size-1">{{ .Title }}</h1>
     {{ range .Site.RegularPages.GroupByPublishDate "2006" }}
       {{ if ne .Key "0001" }}
         <div class="archive__group-year">

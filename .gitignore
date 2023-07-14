@@ -1,2 +1,6 @@
-node_modules
-public
+.tmp
+assets/scss/bulma/css**
+assets/scss/bulma/README.md
+assets/scss/bulma/package.json
+assets/scss/bulma/LICENSE
+assets/scss/bulma/bulma.sass

@@ -1,0 +1,1 @@
+document.getElementById("copy_permalink").addEventListener("click", function(){navigator.clipboard.writeText(window.location.href);});

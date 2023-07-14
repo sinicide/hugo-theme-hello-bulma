@@ -1,0 +1,23 @@
+:root {
+    --border-color: $white;
+}
+
+.title a {
+    color: inherit;
+}
+
+a {
+    color: $orange;
+}
+
+body {
+    @media (min-width: 1024px) {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+    }
+}
+
+.site-content {
+    flex: 1;
+}

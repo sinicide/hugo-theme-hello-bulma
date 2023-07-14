@@ -3,25 +3,23 @@
   <head>
     {{ block "title" . }}
       <title>
-        {{ if .IsHome }}{{ $.Site.Title }}{{ with $.Site.Params.Subtitle }} —
-        {{ . }}{{ end }}{{ else }}{{ .Title }} ::
-        {{ $.Site.Title }}{{ with $.Site.Params.Subtitle }} — {{ . }}{{ end }}{{ end }}
+        {{ if .IsHome }}{{ $.Site.Title }}{{ with $.Site.Params.subtitle }} — {{ . }}{{ end }}{{ else }}{{ .Title }} - {{ $.Site.Title }}{{ end }}
       </title>
     {{ end }}
     {{ partial "head.html" . }}
   </head>
-  <body {{ with $.Site.Params.defaultTheme -}} class="{{ printf "%s-theme" . }}" {{- end }}>
-    <div class="container">
-      {{ partial "header.html" . }}
+  <body class="has-background-grey-dark has-text-grey-light line-numbers">
+    {{ partial "header.html" . }}
 
+    <div class="container is-max-desktop site-content">
       <div class="content">
         {{ block "main" . }} {{ end }}
       </div>
-
-      {{ block "footer" . }}
-        {{ partial "footer.html" . }}
-      {{ end }}
     </div>
+
+    {{ block "footer" . }}
+      {{ partial "footer.html" . }}
+    {{ end }}
 
     {{ if $.Site.GoogleAnalytics }}
       {{ template "_internal/google_analytics.html" . }}

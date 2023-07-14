@@ -1,0 +1,184 @@
+@media screen and (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  position: relative;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+  -webkit-text-size-adjust: 100%;
+  
+  @media ($phone) {
+    font-size: 1rem;
+  }
+}
+
+p {
+  font-size: 1.1rem;
+  line-height: 2;
+}
+  
+img {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+}
+  
+figure {
+    max-width: 100%;
+
+    & img {
+      border-radius: 8px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, .15);
+    }
+
+    figcaption {
+      margin-top: .5em;
+    }
+}
+  
+code, kbd {
+    font-family: Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;
+    color: $orange;
+    background: $dark;
+    padding: 1px 6px;
+    margin: 0 2px;
+    border-radius: 5px;
+    font-size: .9em;
+    font-weight: normal;
+    font-feature-settings: normal;
+  
+    code, kbd {
+      background: transparent;
+      padding: 0;
+      margin: 0;
+    }
+}
+  
+pre {
+    font-feature-settings: normal;
+    background: $dark;
+    padding: 20px;
+    border-radius: 8px;
+    font-size: .9rem;
+    overflow: auto;
+  
+    @media ($phone) {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+  
+    code {
+      font-feature-settings: normal;
+      background: none !important;
+      color: $white;
+      margin: 0;
+      padding: 0;
+      font-size: inherit;
+    }
+}
+  
+blockquote {
+  border-radius: $box-radius;
+  box-shadow: $box-shadow;
+  display: block;
+  padding: $box-padding;
+
+  @media ($phone) {
+    margin: 10px;
+    padding: 10px;
+  }
+  
+  p:first-of-type {
+    margin-top: 0;
+  }
+  
+  p:last-of-type {
+    margin-bottom: 0;
+  }
+}
+  
+/* Fix for gist integration */
+table:not(.js-file-line-container) {
+  table-layout: fixed;
+  border-collapse: collapse;
+  width: 100%;
+  margin: 40px 0;
+  border-radius: 5px;
+}
+  
+/* Fix for gist integration */
+table, th, td:not(.js-line-number) {
+  border: 2px solid $grey;
+  padding: 10px;
+  color: $black-ter;
+}
+
+table {
+  border: 0;
+  & th {
+    border: 2px solid $dark !important;
+  }
+  & td {
+    border: 2px solid $grey !important;
+  }
+}
+
+th {
+  background: $dark;
+  color: $white !important;
+  font-weight: 400;
+}
+
+tr {
+  &:nth-child(odd) {
+    background: $grey;
+  }
+}
+  
+ul, ol {
+  @media ($phone) {
+    margin-left: 20px;
+  }
+}
+  
+ol ol {
+  list-style-type: lower-alpha;
+}
+    
+hr {
+  width: 100%;
+  border: none;
+  background: $dark;
+  height: 1px;
+}
+  
+.hidden {
+  display: none;
+}
+  
+blockquote.twitter-tweet {
+  background: hsla(206deg, 62%, 45%, 0.1);
+  border: none;
+  padding: 30px;
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  border-radius: 8px;
+}
+
+abbr {
+  text-decoration: underline dotted;
+}
+
+mark {
+  background-color: $orange;
+  color: $white;
+}
+
+::selection {
+  background-color: $orange;
+}

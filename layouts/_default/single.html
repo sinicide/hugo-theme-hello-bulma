@@ -1,12 +1,12 @@
 {{ define "main" }}
   {{ $isntDefault := not (or (eq (trim $.Site.Params.contentTypeName " ") "posts") (eq (trim $.Site.Params.contentTypeName " ") "")) }}
   {{ $contentTypeName := cond $isntDefault (string $.Site.Params.contentTypeName) "posts" }}
-
-  <article class="post">
-    <h1 class="post-title">{{ .Title | markdownify }}</h1>
-    <div class="post-meta">
+<div class="posts">
+  <article class="post mt-6">
+    <h1 class="is-size-1">{{ .Title | markdownify }}</h1>
+    <div class="is-size-5">
       {{ if .Date | default nil }}
-        <time class="post-date">
+        <time>
           {{ .Date.Format ($.Site.Params.DateFormatSingle | default "2006-01-02") }}
         </time>
 
@@ -18,31 +18,31 @@
       {{ end }}
 
       {{ with .Params.Author }}
-        <span class="post-author"
-          >— {{ $.Site.Params.WrittenBy | default "Written by" }} {{ . }}</span
-        >{{ end }}
-
+        <span>— {{ $.Site.Params.WrittenBy | default "Written by" }} {{ . }}</span>
+      {{ end }}
 
       {{ if $.Site.Params.ShowReadingTime }}
-        <span class="post-read-time"
-          >— {{ .ReadingTime }} {{ $.Site.Params.MinuteReadingTime | default "min read" }}</span
-        >
+        <span>— {{ .ReadingTime }} {{ $.Site.Params.MinuteReadingTime | default "min read" }}</span>
       {{ end }}
     </div>
 
     {{ if .Params.tags }}
-      <span class="post-tags">
+      <span class="is-size-6">
         {{ range .Params.tags }}
           <a href="{{ (urlize (printf "tags/%s" . )) | absLangURL }}/">#{{ . }}</a>&nbsp;
         {{ end }}
       </span>
     {{ end }}
 
-    {{ if .Params.Cover }}
+    {{ if .Params.Image }}
       {{ partial "postcover.html" . }}
     {{ end }}
 
-    <div class="post-content">
+    {{ if .Params.YoutubeId }}
+      {{ partial "videocover.html" . }}
+    {{ end }}
+    
+    <div class="mt-5">
       {{ if or .Params.Toc $.Site.Params.Toc }}
         {{ if ne .Params.Toc false }}
         <h2>Table of Contents</h2>
@@ -51,41 +51,51 @@
       {{ end }}
       {{ .Content }}
     </div>
-    {{ if eq .Type $.Site.Params.contentTypeName }}
-      {{ if or .NextInSection .PrevInSection }}
-        <div class="pagination">
-          <div class="pagination__title">
-            <span class="pagination__title-h"
-              >{{ $.Site.Params.ReadOtherPosts | default "Read other posts" }}</span
-            >
-            <hr />
-          </div>
-          <div class="pagination__buttons">
-            {{ if .NextInSection }}
-              <span class="button previous">
-                <a href="{{ .NextInSection.Permalink }}">
-                  <span class="button__icon">←</span>
-                  <span class="button__text">{{ .NextInSection.Title }}</span>
-                </a>
-              </span>
-            {{ end }}
-            {{ if .PrevInSection }}
-              <span class="button next">
-                <a href="{{ .PrevInSection.Permalink }}">
-                  <span class="button__text">{{ .PrevInSection.Title }}</span>
-                  <span class="button__icon">→</span>
-                </a>
-              </span>
-            {{ end }}
-          </div>
-        </div>
-      {{ end }}
-    {{ end }}
 
-    {{ if not (eq .Params.Comments "false") }}
-      {{ if or (eq .Type $.Site.Params.contentTypeName) (.Params.Comments) }}
-        {{ partial "comments.html" . }}
+    <div class="mt-6">
+      {{ if .Site.Params.shareLinks }}
+      <div class="share-links">
+        {{ partial "share.html" (dict "social" .Site.Params.share "title" .Title "permalink" .Permalink) }}
+      </div>
       {{ end }}
-    {{ end }}
+      <div>
+        <span class="is-size-5">Written by <a href="{{ .Site.Params.Contact }}">{{ .Site.Params.Author }}</a></span>
+      </div>
+      <span class="is-size-6">Last Modified on {{ .Lastmod.Format "2006 January 2 at 15:04:05 MST" }} | {{ if .Site.Params.github.contentRepo }}<a href="https://github.com/{{ .Site.Params.github.user }}/{{ .Site.Params.github.contentRepo }}/commits/main/{{ .File.Path }}" aria-label="See the git changelog for this post">see changelog</a>{{ end }}</span>
+    </div>
   </article>
+</div>
+
+{{ if eq .Type $.Site.Params.contentTypeName }}
+{{ if or .NextInSection .PrevInSection }}
+<div class="pagination">
+  <div class="pagination__header">
+    <span class="pagination__title">{{ $.Site.Params.ReadOtherPosts | default "Read other posts" }}</span>
+  </div>
+  <div class="pagination__navigation">
+    <div class="pagination__buttons">
+      {{ if .NextInSection }}
+      <a class="button is-dark previous" href="{{ .NextInSection.Permalink }}">
+        <span class="button__icon">←</span>
+        <span class="button__text">{{ .NextInSection.Title }}</span>
+      </a>
+      {{ end }}
+      {{ if .PrevInSection }}
+      <a class="button is-dark next" href="{{ .PrevInSection.Permalink }}">
+        <span class="button__text">{{ .PrevInSection.Title }}</span>
+        <span class="button__icon">→</span>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</div>
+{{ end }}
+{{ end }}
+
+{{ if not (eq .Params.Comments "false") }}
+{{ if or (eq .Type $.Site.Params.contentTypeName) (.Params.Comments) }}
+  {{ partial "comments.html" . }}
+{{ end }}
+{{ end }}
+
 {{ end }}

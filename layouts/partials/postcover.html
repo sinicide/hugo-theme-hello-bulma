@@ -1,11 +1,11 @@
-<figure class="post-cover">
+<figure class="image">
   {{ if .Params.UseRelativeCover }}
-    <img src="{{ (printf "%s%s" .Permalink .Params.Cover ) }}" alt="{{ .Params.CoverAlt | plainify | default .Title }}"/>
+    <img src="{{ (printf "%s%s" .Permalink .Params.Image ) }}" alt="{{ .Params.ImageCaption | plainify | default .Title }}"/>
   {{ else }}
-    <img src="{{ .Params.Cover | absURL }}" alt="{{ .Params.CoverAlt | plainify | default .Title }}"/>
+    <img src="{{ .Params.Image | absURL }}" alt="{{ .Params.ImageCaption | plainify | default .Title }}"/>
   {{ end }}
 
-  {{ if .Params.CoverCaption }}
-    <figcaption class="center">{{ .Params.CoverCaption | markdownify }}</figcaption>
+  {{ if .Params.ImageCaption }}
+    <figcaption class="center">{{ .Params.ImageCaption | markdownify }}</figcaption>
   {{ end }}
 </figure>
