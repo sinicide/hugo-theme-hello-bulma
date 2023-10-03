@@ -1,3 +1,7 @@
+# Block Boogle Bard
+User-Agent: Google-Extended
+Disallow: /
+
 User-agent: *
 Disallow: /about/
 
