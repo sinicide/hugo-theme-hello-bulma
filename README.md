@@ -4,7 +4,8 @@
 
 ## Todo:
 - [x] Refactored theme
-- [ ] Create workflow
+- [x] Create workflow
+- [ ] Update for Font Awesome v6
 
 ## Updating Bulma CSS Style
 Follow steps to update to specific version of Bulma.
@@ -20,6 +21,13 @@ make bulma-update
 
 ```
 make prism-update
+```
+
+## Updating Font Awesome Free
+
+```
+export FONT_AWESOME_VERSION=6.4.2
+make fontawesome-update
 ```
 
 ## Comments
