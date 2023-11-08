@@ -19,7 +19,8 @@ fontawesome-update:
 	mkdir -p "./.tmp"
 	curl -sL https://use.fontawesome.com/releases/v$$FONT_AWESOME_VERSION/fontawesome-free-$$FONT_AWESOME_VERSION-web.zip -o ./.tmp/fontawesome-free-$$FONT_AWESOME_VERSION-web.zip
 	unzip -d ./.tmp ./.tmp/fontawesome-free-$$FONT_AWESOME_VERSION-web.zip
-	mkdir -p "assets/webfonts"
-	cp ./.tmp/fontawesome-free-$$FONT_AWESOME_VERSION-web/webfonts/* assets/webfonts
+	mkdir -p "static/fonts"
+	cp ./.tmp/fontawesome-free-$$FONT_AWESOME_VERSION-web/webfonts/* static/fonts
 	mkdir -p "assets/scss/fontawesome"
 	cp ./.tmp/fontawesome-free-$$FONT_AWESOME_VERSION-web/scss/* assets/scss/fontawesome
+	sed -i 's/..\/webfonts/..\/..\/fonts/' assets/scss/fontawesome/_variables.scss
