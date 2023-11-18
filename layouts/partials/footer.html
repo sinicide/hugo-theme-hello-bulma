@@ -24,7 +24,10 @@
 </div>
 
 {{ $menu := resources.Get "js/menu.js" | js.Build }}
-{{ $prism := resources.Get "js/prism.js" | js.Build }}
 {{ $copyLink := resources.Get "js/copy.js" | js.Build }}
-{{ $bundle := slice $menu $prism $copyLink | resources.Concat "bundle.js" | resources.Minify }}
+{{ $bundle := slice $menu $copyLink | resources.Concat "js/bundle.js" | resources.Minify }}
 <script type="text/javascript" src="{{ $bundle.RelPermalink }}"></script>
+{{ if eq .Section "blog" }}
+{{ $prism := resources.Get "js/prism.js" | resources.Minify }}
+<script type="text/javascript" src="{{ $prism.RelPermalink }}"></script>
+{{ end}}
