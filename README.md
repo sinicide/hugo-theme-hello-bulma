@@ -5,7 +5,7 @@
 ## Todo:
 - [x] Refactored theme
 - [x] Create workflow
-- [ ] Update for Font Awesome v6
+- [x] Update for Font Awesome v6
 
 ## Updating Bulma CSS Style
 Follow steps to update to specific version of Bulma.
