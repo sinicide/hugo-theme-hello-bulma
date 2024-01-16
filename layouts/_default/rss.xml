@@ -7,16 +7,16 @@
 {{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>{{ $.Site.Title }}</title>
+    <title>{{ $.Site.Params.title }} - {{ $.Site.Params.subtitle }}</title>
     
     {{ if .Site.Params.RssImage }}<image>
       <url>{{ printf "%s%s" .Permalink .Site.Params.RssImage }}</url>
-      <title>{{ if eq  .Title  .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Title }}{{ end }}</title>
+      <title>{{ if eq  .Title  $.Site.Params.title }}{{ $.Site.Params.title }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ $.Site.Params.title }}{{ end }}</title>
       <link>{{ .Permalink }}</link>
     </image>
     {{ end }}
     
-    <link>{{ $.Site.BaseURL }}</link>
+    <link>{{ absURL "" }}</link>
     <description>{{ $.Site.Params.description }}</description>
     {{ with .Site.LanguageCode }}
     <language>{{.}}</language>
