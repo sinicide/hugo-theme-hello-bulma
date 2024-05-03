@@ -13,7 +13,8 @@
       class="is-hidden-desktop has-text-success fas fa-cogs" title="automation"></i>, powered by <a
       href="https://gohugo.io" target="_blank" rel="noopener" class="has-text-danger"><strong
           class="has-text-danger is-hidden-touch">hugo</strong><i
-          class="is-hidden-desktop has-text-danger fas fa-cogs" title="gohugo"></i></a></span>
+                    class="is-hidden-desktop has-text-danger fas fa-cogs" title="gohugo"></i></a>.{{ if $.Site.Params.analytics.umami.share }} <a href="{{ $.Site.Params.analytics.umami.share }}" rel="noopener" title="Umami Analytics" class="has-text-info"><i class="has-text-info fa-solid fa-chart-line"></i></a>{{ end }}
+        </span>
   </div>
 </footer>
 
