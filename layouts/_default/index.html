@@ -17,7 +17,7 @@
         <div class="columns is-desktop mt-6">
             {{ range .Site.Params.socials }}
             <div class="has-text-centered column">
-                <a class="social has-text-orange" href="{{ .url }}" aria-label="{{ .name }} - {{ .title }}" title="{{ .name }}" target="_blank">
+                <a class="social has-text-orange" href="{{ .url }}" aria-label="{{ .name }} - {{ .title }}" title="{{ .name }}" target="_blank" data-umami-event="social-link-{{ lower .name }}">
                 <i class="social__icon {{ .icon }}"></i>
                 <span class="social__name title has-text-orange">{{ .name }}</span>
                 <span class="social__title subtitle has-text-orange">{{ .title }}</span>
