@@ -8,21 +8,21 @@
     padding: 0 1rem;
     margin-top: 6rem;
   }
-  
+
   @media ($tablet) {
     max-width: 660px;
   }
-  
+
   &:not(:last-of-type) {
     border-bottom: 1px solid $dark;
   }
-  
+
   &-meta {
     @media ($phone) {
-      font-size: .85rem;
+      font-size: 0.85rem;
     }
   }
-  
+
   &-title {
     @media ($phone) {
       font-size: 2rem;
@@ -33,12 +33,12 @@
     h1 {
       justify-content: center;
     }
-    
+
     h2 {
       justify-content: center;
       margin-bottom: 10px;
-    
-      &+ h2 {
+
+      & + h2 {
         margin-top: -10px;
         margin-bottom: 20px;
       }
@@ -47,7 +47,6 @@
 }
 
 .cover {
-
   &__video {
     position: relative;
     height: 0;
@@ -65,3 +64,9 @@
     }
   }
 }
+
+.redacted {
+  background: $grey-dark;
+  color: $grey-dark;
+}
+
