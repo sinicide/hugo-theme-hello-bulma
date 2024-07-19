@@ -1,12 +1,11 @@
 {{ define "main" }}
   <div class="posts">
-    <h1 class="is-size-1">
-      <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
-    </h1>
-    <div class="post-content">
-      <p>
-        {{ "Hmm... Sorry, this page seems to be missing." | markdownify }}
-      </p>
-    </div>
+    <article class="post page-not-found">
+      <h1 aria-label="{{ .Title }}" class="has-text-danger" style="font-weight: 800; font-size: 4rem">( ._.)</h1>
+      <div class="post-content">
+        <p style="font-size: 2rem;">Dudes, <strong style="font-weight: 800">what the <span class="redacted">fuck</span></strong> is going on?</p>
+        <p>Obviously this ain't it.<br/>I dunno, maybe try typing better or something...</p>
+      </div>
+    </article>
   </div>
 {{ end }}
