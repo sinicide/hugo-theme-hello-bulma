@@ -17,7 +17,7 @@
     </div>
 
     {{ block "footer" . }} {{ partial "footer.html" . }} {{ end }} {{ if
-    $.Site.GoogleAnalytics }} {{ template "_internal/google_analytics.html" . }}
+    isset site.Params "googleanayltics" }} {{ template "_internal/google_analytics.html" . }}
     {{ end }}
 
     {{ if $.Site.Params.analytics.umami.id }}
