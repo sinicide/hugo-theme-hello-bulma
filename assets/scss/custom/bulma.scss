@@ -1,21 +1,29 @@
 @charset "utf-8";
 
-// CUSTOM
-@forward "./before_variables.scss";
-
 // bulma.io v1.0.3
-@forward "../bulma/sass/utilities";
+@use "../bulma/sass/utilities" with (
+  $family-sans-serif:
+    'Cantarell, BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',
+  $grey-dark: #4a4a4a,
+  $dark: #363636,
+  $grey-darker: #363636,
+  $weight-extrabold: 600
+);
+@use "../bulma/sass/components" with (
+  $navbar-dropdown-background-color: #363636 !important,
+  $navbar-background-color: #363636 !important
+);
 @forward "../bulma/sass/base";
 @forward "../bulma/sass/elements";
 @forward "../bulma/sass/form";
-@forward "../bulma/sass/components";
 @forward "../bulma/sass/grid";
 @forward "../bulma/sass/helpers";
 @forward "../bulma/sass/layout";
+@forward "../bulma/sass/base/skeleton.scss";
+@forward "../bulma/sass/themes";
 
 // CUSTOM
-@forward "./after_variables.scss";
-@forward "./mixin.scss";
+@forward "./override.scss";
 @forward "./header.scss";
 @forward "./logo.scss";
 @forward "./menu.scss";
@@ -32,6 +40,7 @@
 @forward "./prompt.scss";
 @forward "./back_button.scss";
 @forward "./404.scss";
+@forward "./buttons.scss";
 
 // Font Awesome 6.7.2
 @import "../fontawesome/fontawesome.scss";
