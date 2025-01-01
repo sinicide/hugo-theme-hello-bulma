@@ -7,15 +7,15 @@
 - [x] Refactored theme
 - [x] Create workflow
 - [x] Update for Font Awesome v6
-- [ ] Refactor theme to use Bulma CSS v1
-- [ ] Update to Font Awesome v6.7.2
+- [x] Refactor theme to use Bulma CSS v1
+- [x] Update to Font Awesome v6.7.2
 
 ## Updating Bulma CSS Style
 
 Follow steps to update to specific version of Bulma.
 
 ```
-export BULMA_VERSION=0.9.4
+export BULMA_VERSION=1.0.3
 make bulma-update
 ```
 
