@@ -1,13 +1,16 @@
+@use "./initial-variables.scss" as custom;
+
 .section {
-    margin-top: 0;
-    padding: 0 1rem;
-    
-    @media ($tablet) {
-        max-width: 660px;
-        margin: 0 auto;
-      }
+  margin-top: 0;
+  padding: 0 1rem;
+
+  @media (custom.$tablet) {
+    max-width: 660px;
+    margin: 0 auto;
+  }
 }
 
 .home__body {
-    margin-top: 6rem;
+  margin-top: 6rem;
 }
+
