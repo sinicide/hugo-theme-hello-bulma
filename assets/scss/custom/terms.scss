@@ -45,12 +45,12 @@
     &-year {
       margin-top: 40px;
 
-      @media ($phone) {
+      @media (custom.$phone) {
         margin-top: 20px;
       }
 
       &:not(:last-of-type) {
-        border-bottom: 1px solid $dark;
+        border-bottom: 1px solid iv.$grey-darker;
       }
     }
 
@@ -63,4 +63,3 @@
     padding: 20px 0;
   }
 }
-

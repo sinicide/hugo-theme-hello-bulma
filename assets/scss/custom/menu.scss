@@ -44,7 +44,7 @@
       }
     }
 
-    @media ($phone) {
+    @media (custom.$phone) {
       flex-direction: column;
       align-items: flex-start;
       padding: 0;
@@ -117,4 +117,3 @@
     cursor: pointer;
   }
 }
-

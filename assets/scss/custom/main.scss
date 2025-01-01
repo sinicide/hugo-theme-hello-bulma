@@ -167,7 +167,7 @@ ol ol {
 hr {
   width: 100%;
   border: none;
-  background: $dark;
+  background: iv.$grey-darker;
   height: 1px;
 }
 
@@ -197,4 +197,3 @@ mark {
 ::selection {
   background-color: custom.$orange;
 }
-
