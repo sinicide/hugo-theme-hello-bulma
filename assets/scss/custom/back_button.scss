@@ -1,35 +1,40 @@
+@use "./initial-variables.scss" as custom;
+@use "../bulma/sass/utilities/initial-variables.scss" as iv;
+
 .back-to-top {
-    pointer-events: all;
-    position: fixed;
-    position: sticky;
-    top: calc(100vh - 10rem);
+  pointer-events: all;
+  position: fixed;
+  position: sticky;
+  top: calc(100vh - 10rem);
 
-    // Style
-    width: 60px;
-    height: 60px;
-    background: $orange;
-    display: flex;
-    font-size: 2em;
-    align-items: center;
-    justify-content: center;
-    border-radius: 30px;
-    box-shadow: $box-shadow;
-    
+  // Style
+  width: 60px;
+  height: 60px;
+  background: custom.$orange;
+  display: flex;
+  font-size: 2em;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  box-shadow:
+    0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1),
+    0 0px 1px rgba(10, 10, 10, 0.02);
 
-    & .fas {
-        color: $dark;
+  & .fas {
+    color: iv.$grey-darker;
+  }
+
+  &-wrapper {
+    overflow: clip;
+    pointer-events: none;
+    position: absolute;
+    top: 100vh;
+    right: 6rem;
+    bottom: 0;
+
+    @media (custom.$tablet) {
+      display: none;
     }
-
-    &-wrapper {
-        overflow: clip;
-        pointer-events: none;
-        position: absolute;
-        top: 100vh;
-        right: 6rem;
-        bottom: 0;
-
-        @media ($tablet) {
-            display: none;
-        }
-    }
+  }
 }
+
