@@ -1,5 +1,8 @@
+@use "./initial-variables.scss" as custom;
+@use "../bulma/sass/utilities/initial-variables" as iv;
+
 .header {
-  background: $primary-dark;
+  background: bulmaFindDarkColor(iv.$turquoise);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,17 +14,17 @@
     flex-direction: column;
     align-items: left;
   }
-  
+
   &__right {
     display: flex;
     flex-direction: row;
     align-items: center;
-  
-    @media ($phone) {
+
+    @media (custom.$phone) {
       flex-direction: row-reverse;
     }
   }
-  
+
   &__inner {
     display: flex;
     align-items: center;
@@ -35,7 +38,7 @@
     color: inherit;
   }
 }
-  
+
 .theme-toggle {
   display: flex;
   align-items: center;
@@ -43,16 +46,19 @@
   line-height: 1;
   cursor: pointer;
 }
-  
+
 .theme-toggler {
   fill: currentColor;
 }
 
 .h-anchor {
   margin-left: 1px;
-  color: $white;
+  color: iv.$white;
   text-decoration: none;
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0s linear 0.1s, opacity 0.1s linear;
+  transition:
+    visibility 0s linear 0.1s,
+    opacity 0.1s linear;
 }
+
