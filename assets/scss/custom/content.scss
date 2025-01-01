@@ -1,20 +1,23 @@
+@use "../bulma/sass/utilities/initial-variables.scss" as iv;
+
 .content {
-    & blockquote {
-        background-color: $dark;
-        color: $white;
-        border: initial;
+  & blockquote {
+    background-color: iv.$grey-darker;
+    color: iv.$white;
+    border: initial;
 
-        & strong {
-            color: $white;
-        }
+    & strong {
+      color: iv.$white;
     }
+  }
 
-    & img {
-        margin: 0 auto;
-    }
+  & img {
+    margin: 0 auto;
+  }
 
-    & figure {
-        margin-left: 1em;
-        margin-right: 1em;
-    }
+  & figure {
+    margin-left: 1em;
+    margin-right: 1em;
+  }
 }
+
