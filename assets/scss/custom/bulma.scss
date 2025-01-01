@@ -1,40 +1,48 @@
 @charset "utf-8";
 
-// Font Awesome 6.4.2
+// bulma.io v1.0.3
+@use "../bulma/sass/utilities" with (
+  $family-sans-serif:
+    'Cantarell, BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',
+  $grey-dark: #4a4a4a,
+  $dark: #363636,
+  $grey-darker: #363636,
+  $weight-extrabold: 600
+);
+@use "../bulma/sass/components" with (
+  $navbar-dropdown-background-color: #363636 !important,
+  $navbar-background-color: #363636 !important
+);
+@forward "../bulma/sass/base";
+@forward "../bulma/sass/elements";
+@forward "../bulma/sass/form";
+@forward "../bulma/sass/grid";
+@forward "../bulma/sass/helpers";
+@forward "../bulma/sass/layout";
+@forward "../bulma/sass/base/skeleton.scss";
+@forward "../bulma/sass/themes";
+
+// CUSTOM
+@forward "./override.scss";
+@forward "./header.scss";
+@forward "./logo.scss";
+@forward "./menu.scss";
+@forward "./main.scss";
+@forward "./post.scss";
+@forward "./pagination.scss";
+@forward "./footer.scss";
+@forward "./terms.scss";
+@forward "./prism.scss";
+@forward "./animation.scss";
+@forward "./social.scss";
+@forward "./content.scss";
+@forward "./section.scss";
+@forward "./prompt.scss";
+@forward "./back_button.scss";
+@forward "./404.scss";
+@forward "./button.scss";
+
+// Font Awesome 6.7.2
 @import "../fontawesome/fontawesome.scss";
 @import "../fontawesome/solid.scss";
 @import "../fontawesome/brands.scss";
-
-// CUSTOM
-@import "./before_variables.scss";
-
-// bulma.io v0.9.4
-@import "../bulma/sass/utilities/_all";
-@import "../bulma/sass/base/_all";
-@import "../bulma/sass/elements/_all";
-@import "../bulma/sass/form/_all";
-@import "../bulma/sass/components/_all";
-@import "../bulma/sass/grid/_all";
-@import "../bulma/sass/helpers/_all";
-@import "../bulma/sass/layout/_all";
-
-// CUSTOM
-@import "./after_variables.scss";
-@import "./mixin.scss";
-@import "./header.scss";
-@import "./logo.scss";
-@import "./menu.scss";
-@import "./main.scss";
-@import "./post.scss";
-@import "./pagination.scss";
-@import "./footer.scss";
-@import "./terms.scss";
-@import "./prism.scss";
-@import "./animation.scss";
-@import "./social.scss";
-@import "./content.scss";
-@import "./section.scss";
-@import "./prompt.scss";
-@import "./back_button.scss";
-@import "./404.scss";
-

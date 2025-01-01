@@ -1,9 +1,12 @@
+@use "./initial-variables.scss" as custom;
+@use "../bulma/sass/utilities/initial-variables.scss" as iv;
+
 .terms,
 .archive {
   padding: 0 1rem;
   margin-top: 6rem;
 
-  @media ($tablet) {
+  @media (custom.$tablet) {
     max-width: 660px;
     margin: 6rem auto;
   }
@@ -18,21 +21,21 @@
       display: flex;
       align-items: flex-start;
       padding: 1rem 0;
-  
-      @media ($phone) {
+
+      @media (custom.$phone) {
         flex-direction: column;
       }
-  
+
       &:not(:last-of-type) {
-        border-bottom: 1px solid $dark;
+        border-bottom: 1px solid iv.$grey-darker;
       }
 
       &-header {
         margin: 1.5rem 0;
         width: 200px;
-        opacity: .7;
-  
-        @media ($phone) {
+        opacity: 0.7;
+
+        @media (custom.$phone) {
           margin: 10px 0 0;
         }
       }
@@ -42,15 +45,14 @@
     &-year {
       margin-top: 40px;
 
-      @media ($phone) {
+      @media (custom.$phone) {
         margin-top: 20px;
       }
-  
-      &:not(:last-of-type) {
-        border-bottom: 1px solid $dark;
-      }  
-    }
 
+      &:not(:last-of-type) {
+        border-bottom: 1px solid iv.$grey-darker;
+      }
+    }
 
     &-posts {
       width: 100%;

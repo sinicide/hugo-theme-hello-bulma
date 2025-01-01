@@ -1,29 +1,32 @@
+@use "../bulma/sass/utilities/initial-variables.scss" as iv;
+@use "../bulma/sass/utilities/derived-variables.scss" as dv;
+
 .prompt {
-    color: $dark !important;
-    font-style: italic;
+  color: iv.$grey-darker !important;
+  font-style: italic;
 
-    &-info {
-        background-color: $info !important;
+  &-info {
+    background-color: dv.$info !important;
+  }
+
+  &-warn {
+    background-color: dv.$warning !important;
+
+    & .prompt-icon {
+      color: iv.$grey-darker;
     }
+  }
 
-    &-warn {
-        background-color: $warning !important;
+  &-danger {
+    background-color: dv.$danger !important;
 
-        & .prompt-icon {
-            color: $dark;
-        }
+    & .prompt-icon {
+      color: iv.$grey-darker;
     }
+  }
 
-    &-danger {
-        background-color: $danger !important;
-        
-        & .prompt-icon {
-            color: $dark;
-        }   
-    }
-
-    &-icon {
-        margin-right: .4em;
-        color: $white;
-    }
+  &-icon {
+    margin-right: 0.4em;
+    color: iv.$white;
+  }
 }

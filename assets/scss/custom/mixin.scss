@@ -1,8 +1,11 @@
-@mixin greater-icon($stroke-width: 3px, $width: .95rem, $height: 100%) {
+@use "../bulma/sass/utilities/initial-variables.scss" as iv;
+@use "../bulma/sass/utilities/derived-variables.scss" as dv;
+
+@mixin greater-icon($stroke-width: 3px, $width: 0.95rem, $height: 100%) {
   .greater-icon {
     width: $width;
     height: $height;
-  
+
     path {
       stroke: currentColor;
       stroke-width: $stroke-width;
@@ -12,8 +15,8 @@
 
 @mixin menu {
   position: absolute;
-  background: $dark;
-  box-shadow: $shadow;
+  background: iv.$grey-darker;
+  box-shadow: dv.$shadow-color;
   margin: 0;
   padding: 5px;
   list-style: none;

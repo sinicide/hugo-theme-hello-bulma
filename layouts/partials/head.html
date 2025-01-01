@@ -9,8 +9,9 @@
 {{ hugo.Generator }}
 
 <!-- Theme CSS -->
-{{ $style := resources.Get "scss/custom/bulma.scss" | toCSS }}
-<link rel="stylesheet" href="{{ $style.RelPermalink }}" />
+{{ $opts := dict "transpiler" "dartsass" }}
+{{ $style := resources.Get "scss/custom/bulma.scss" | toCSS $opts | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}" crossorigin="anonymous" />
 
 <!-- Icons -->
 <link rel="icon" href="{{ "favicon.ico" | absURL }}" sizes="32x32" />

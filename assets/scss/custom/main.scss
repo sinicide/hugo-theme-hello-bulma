@@ -1,3 +1,7 @@
+@use "./initial-variables.scss" as custom;
+@use "../bulma/sass/utilities/initial-variables.scss" as iv;
+@use "../bulma/sass/elements/box.scss" as box;
+
 @media screen and (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
@@ -10,8 +14,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -webkit-overflow-scrolling: touch;
   -webkit-text-size-adjust: 100%;
-  
-  @media ($phone) {
+
+  @media (custom.$phone) {
     font-size: 1rem;
     display: block;
   }
@@ -21,87 +25,94 @@ p {
   font-size: 1.1rem;
   line-height: 2;
 }
-  
+
 img {
-    display: block;
-    max-width: 100%;
-    margin: 0 auto;
-}
-  
-figure {
-    max-width: 100%;
-
-    & img {
-      border-radius: 8px;
-      box-shadow: 0 12px 40px rgba(0, 0, 0, .15);
-    }
-
-    figcaption {
-      margin-top: .5em;
-    }
-}
-  
-code, kbd {
-    font-family: Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;
-    color: $orange;
-    background: $dark;
-    padding: 1px 6px;
-    margin: 0 2px;
-    border-radius: 5px;
-    font-size: .9em;
-    font-weight: normal;
-    font-feature-settings: normal;
-  
-    code, kbd {
-      background: transparent;
-      padding: 0;
-      margin: 0;
-    }
-}
-  
-pre {
-    font-feature-settings: normal;
-    background: $dark;
-    padding: 20px;
-    border-radius: 8px;
-    font-size: .9rem;
-    overflow: auto;
-  
-    @media ($phone) {
-      white-space: pre-wrap;
-      word-wrap: break-word;
-    }
-  
-    code {
-      font-feature-settings: normal;
-      background: none !important;
-      color: $white;
-      margin: 0;
-      padding: 0;
-      font-size: inherit;
-    }
-}
-  
-blockquote {
-  border-radius: $box-radius;
-  box-shadow: $box-shadow;
   display: block;
-  padding: $box-padding;
+  max-width: 100%;
+  margin: 0 auto;
+}
 
-  @media ($phone) {
+figure {
+  max-width: 100%;
+
+  & img {
+    border-radius: 8px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  figcaption {
+    margin-top: 0.5em;
+  }
+}
+
+code,
+kbd {
+  font-family:
+    Consolas,
+    Monaco,
+    Andale Mono,
+    Ubuntu Mono,
+    monospace;
+  color: custom.$orange;
+  background: custom.$dark;
+  padding: 1px 6px;
+  margin: 0 2px;
+  border-radius: 5px;
+  font-size: 0.9em;
+  font-weight: normal;
+  font-feature-settings: normal;
+
+  code,
+  kbd {
+    background: transparent;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+pre {
+  font-feature-settings: normal;
+  background: custom.$dark;
+  padding: 20px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  overflow: auto;
+
+  @media (custom.$phone) {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  code {
+    font-feature-settings: normal;
+    background: none !important;
+    color: iv.$white;
+    margin: 0;
+    padding: 0;
+    font-size: inherit;
+  }
+}
+
+blockquote {
+  border-radius: box.$box-radius;
+  box-shadow: box.$box-shadow;
+  display: block;
+  padding: box.$box-padding;
+
+  @media (custom.$phone) {
     margin: 10px;
     padding: 10px;
   }
-  
+
   p:first-of-type {
     margin-top: 0;
   }
-  
+
   p:last-of-type {
     margin-bottom: 0;
   }
 }
-  
+
 /* Fix for gist integration */
 table:not(.js-file-line-container) {
   table-layout: fixed;
@@ -110,57 +121,60 @@ table:not(.js-file-line-container) {
   margin: 40px 0;
   border-radius: 5px;
 }
-  
+
 /* Fix for gist integration */
-table, th, td:not(.js-line-number) {
-  border: 2px solid $grey;
+table,
+th,
+td:not(.js-line-number) {
+  border: 2px solid iv.$grey;
   padding: 10px;
-  color: $black-ter;
+  color: iv.$black-ter;
 }
 
 table {
   border: 0;
   & th {
-    border: 2px solid $dark !important;
+    border: 2px solid iv.$grey-darker !important;
   }
   & td {
-    border: 2px solid $grey !important;
+    border: 2px solid iv.$grey !important;
   }
 }
 
 th {
-  background: $dark;
-  color: $white !important;
+  background: iv.$grey-darker;
+  color: iv.$white !important;
   font-weight: 400;
 }
 
 tr {
   &:nth-child(odd) {
-    background: $grey;
+    background: iv.$grey;
   }
 }
-  
-ul, ol {
-  @media ($phone) {
+
+ul,
+ol {
+  @media (custom.$phone) {
     margin-left: 20px;
   }
 }
-  
+
 ol ol {
   list-style-type: lower-alpha;
 }
-    
+
 hr {
   width: 100%;
   border: none;
-  background: $dark;
+  background: iv.$grey-darker;
   height: 1px;
 }
-  
+
 .hidden {
   display: none;
 }
-  
+
 blockquote.twitter-tweet {
   background: hsla(206deg, 62%, 45%, 0.1);
   border: none;
@@ -176,10 +190,10 @@ abbr {
 }
 
 mark {
-  background-color: $orange;
-  color: $white;
+  background-color: custom.$orange;
+  color: iv.$white;
 }
 
 ::selection {
-  background-color: $orange;
+  background-color: custom.$orange;
 }

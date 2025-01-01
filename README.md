@@ -3,11 +3,15 @@
 ## Refactored panr/hugo-theme-hello-friend theme with Bulma.io CSS Framework into my own blog theme
 
 ## Todo:
+
 - [x] Refactored theme
 - [x] Create workflow
 - [x] Update for Font Awesome v6
+- [ ] Refactor theme to use Bulma CSS v1
+- [ ] Update to Font Awesome v6.7.2
 
 ## Updating Bulma CSS Style
+
 Follow steps to update to specific version of Bulma.
 
 ```
@@ -26,11 +30,12 @@ make prism-update
 ## Updating Font Awesome Free
 
 ```
-export FONT_AWESOME_VERSION=6.4.2
+export FONT_AWESOME_VERSION=6.7.2
 make fontawesome-update
 ```
 
 ## Comments
+
 [https://giscus.app/](https://giscus.app/)
 
 ## Built-in shortcodes
@@ -48,12 +53,12 @@ make fontawesome-update
 
 Adding a cover image to your post is simple and there are two options when you edit your `index.md` file in `content/posts/blog-entry-xy/index.md`:
 
-* Use `cover = "/path/to/absolute/img.jpg"` to link an absolute image
-  * Resulting in `https://www.yourpage.com/path/to/absolute/img.jpg`
-* Use `cover = "img.jpg"` and `useRelativeCover = true` to link the image relative to the blog post folder
-  * Resulting in `https://www.yourpage.com/posts/blog-entry-xy/img.jpg`
-* Use `coverAlt = "description of image"` to add custom alt text to the cover image (defaults to post or page title as alt text)
-* Use `coverCaption = "Image Credit to [Barry Bluejeans](https://unsplash.com/)"` to add a caption for the cover image.
+- Use `cover = "/path/to/absolute/img.jpg"` to link an absolute image
+  - Resulting in `https://www.yourpage.com/path/to/absolute/img.jpg`
+- Use `cover = "img.jpg"` and `useRelativeCover = true` to link the image relative to the blog post folder
+  - Resulting in `https://www.yourpage.com/posts/blog-entry-xy/img.jpg`
+- Use `coverAlt = "description of image"` to add custom alt text to the cover image (defaults to post or page title as alt text)
+- Use `coverCaption = "Image Credit to [Barry Bluejeans](https://unsplash.com/)"` to add a caption for the cover image.
 
 ## Credits to
 

@@ -1,56 +1,56 @@
+@use "./initial-variables.scss" as custom;
+@use "../bulma/sass/utilities/initial-variables.scss" as iv;
+
 .social {
+  &__icon {
+    font-size: 4rem;
 
-    &__icon {
-        font-size: 4rem;
-
-        @media($phone) {
-            font-size: 3rem;
-        }
+    @media (custom.$phone) {
+      font-size: 3rem;
     }
+  }
 
-    &__name,
-    &__title,
-    &__icon {
-        display: block !important;
-        
-    }
+  &__name,
+  &__title,
+  &__icon {
+    display: block !important;
+  }
 
-    &__name,
-    &__title {
-        @media($phone) {
-            font-size: 1.2rem;
-        }
+  &__name,
+  &__title {
+    @media (custom.$phone) {
+      font-size: 1.2rem;
     }
+  }
 }
 
 .share {
-    &__social-buttons {
-        font-size: 1em;
+  &__social-buttons {
+    font-size: 1em;
 
-        & span:not(:first-child) {
-            margin-left: .5em;;
+    & span:not(:first-child) {
+      margin-left: 0.5em;
 
-            @media ($tablet) {
-                margin-left: 1em;
-            }
-
-        }
+      @media (custom.$tablet) {
+        margin-left: 1em;
+      }
     }
+  }
 
-    &__social-icons {
-        font-size: 1.3em;
+  &__social-icons {
+    font-size: 1.3em;
 
-        @media ($tablet) {
-            font-size: 1.5em;
-        }
+    @media (custom.$tablet) {
+      font-size: 1.5em;
     }
+  }
 }
 
 #copy_permalink {
-    cursor: pointer;
-    color: $orange;
+  cursor: pointer;
+  color: custom.$orange;
 
-    &:hover {
-        color: $dark;
-    }
+  &:hover {
+    color: iv.$white;
+  }
 }
